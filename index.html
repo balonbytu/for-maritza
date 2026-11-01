@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+    color: #8b2450;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px #d88aa855;
+    animation: muncul 0.5s ease;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+h2 {
+    font-size: 23px;
+    margin-top: 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Bingkai foto */
+.foto {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 5px solid #ffc0d9;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background: #fff0f5;
+}
+
+/* Foto utuh di slide terakhir */
+.foto-akhir {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border: 4px solid #ffc0d9;
+    border-radius: 15px;
+    background: #fff0f5;
+    margin-bottom: 15px;
+}
+
+button {
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 8px 4px;
+}
+
+.next {
+    background: #ff69a6;
+    color: white;
+}
+
+.yes {
+    background: #ff4f91;
+    color: white;
+}
+
+.no {
+    background: #ddd;
+    color: #555;
+    position: relative;
+    transition: 0.15s;
+}
+
+#areaTombol {
+    position: relative;
+    min-height: 100px;
+    margin-top: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+    <img class="foto" src="foto1.jpg">
+    <h2>Hai,ayanggg ❤️</h2>
+    <p>byy byy punya sesuatu yang spesial buat ayang.</p>
+    <button class="next" onclick="nextSlide()">Mulai ❤️</button>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+    <img class="foto" src="foto2.jpg">
+    <h2>Terima Kasih</h2>
+    <p>ayang sudah hadir dan bitin hari byy byy jauh lebih indah.</p>
+    <button class="next" onclick="nextSlide()">Lanjut</button>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+    <img class="foto" src="foto3.jpg">
+    <h2>ayang Spesial</h2>
+    <p>Di antara banyak orang, ayang tetap mau cama byy byy.</p>
+    <button class="next" onclick="nextSlide()">Lanjut</button>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+    <img class="foto" src="foto4.jpg">
+    <h2>Senyum ayangg</h2>
+    <p> selalu menjadi alasan byy byy bahagia.</p>
+    <button class="next" onclick="nextSlide()">Lanjut</button>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+    <img class="foto" src="foto5.jpg">
+    <h2>Selalu Bersama</h2>
+    <p>Semoga kita bisa terus berbagi cerita dan tawa.</p>
+    <button class="next" onclick="nextSlide()">Lanjut</button>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide">
+    <img class="foto" src="foto6.jpg">
+    <h2>Jangan Lupa</h2>
+    <p>Jangan pernah lupa kalau ayangg sangat berarti buat byy byy.</p>
+    <button class="next" onclick="nextSlide()">Lanjut</button>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+    <img class="foto" src="foto7.jpg">
+    <h2>Doa byy byy</h2>
+    <p>Semoga hari-hari ayang selalu dipenuhi kebahagiaan.</p>
+    <button class="next" onclick="nextSlide()">Lanjut</button>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide">
+    <img class="foto" src="foto8.jpg">
+    <h2>Untuk ayangg</h2>
+    <p>byy byy ingin menjadi seseorang yang selalu ada untuk ayang.</p>
+    <button class="next" onclick="nextSlide()">Lanjut</button>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide">
+    <img class="foto" src="foto9.jpg">
+    <h2>Satu Hal</h2>
+    <p>Ada satu pertanyaan yang ingin byy byy tanyain ke ayang.</p>
+    <button class="next" onclick="nextSlide()">Lanjut ❤️</button>
+</div>
+
+<!-- SLIDE 10: PERTANYAAN -->
+<div class="slide" id="slide10">
+    <img class="foto" src="foto10.jpg">
+    <h2 id="pertanyaan">ayang sayang byy byy, tan? ❤️</h2>
+
+    <div id="areaTombol">
+        <button class="yes" onclick="jawabIya()">Iya ❤️</button>
+        <button class="no" id="tombolTidak"
+            onclick="jawabTidak()">Tidak</button>
+    </div>
+</div>
+
+<!-- SLIDE 11: FOTO UTUH -->
+<div class="slide">
+    <img class="foto-akhir" src="foto-akhir.jpg">
+    <h2>maaciwww ayanggggg❤️</h2>
+    <p>
+        byy byy bahagia baneyy bisa kenal ayangg.
+        Semoga kita selalu bersama dan saling menyayangi.
+        imam sayang maritza, hari ini dan seterusnya.
+    </p>
+</div>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+let jumlahTidak = 0;
+
+const pertanyaan = [
+    "ayang sayang atu, tan? ❤️",
+    "Kalau begitu, mau teyus cama byy byy tan? 🥺",
+    "Mau jadi orang yang selalu byy byy sayang tan? 💕"
+];
+
+function nextSlide() {
+    slides[currentSlide].classList.remove("active");
+    currentSlide++;
+
+    slides[currentSlide].classList.add("active");
+}
+
+function jawabIya() {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = 10;
+    slides[currentSlide].classList.add("active");
+}
+
+function jawabTidak() {
+    jumlahTidak++;
+
+    if (jumlahTidak < 3) {
+        document.getElementById("pertanyaan").textContent =
+            pertanyaan[jumlahTidak];
+    } else {
+        document.getElementById("pertanyaan").textContent =
+            "Yakin baneyy nda mau? 🥺";
+    }
+
+    pindahkanTombol();
+}
+
+function pindahkanTombol() {
+    const tombol = document.getElementById("tombolTidak");
+    const area = document.getElementById("areaTombol");
+
+    const maxX = area.clientWidth - tombol.offsetWidth;
+    const maxY = area.clientHeight - tombol.offsetHeight;
+
+    const x = Math.random() * Math.max(maxX, 0);
+    const y = Math.random() * Math.max(maxY, 0);
+
+    tombol.style.position = "absolute";
+    tombol.style.left = x + "px";
+    tombol.style.top = y + "px";
+}
+
+/* Menghindari tombol tidak saat disentuh di HP */
+const tombolTidak = document.getElementById("tombolTidak");
+
+tombolTidak.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    jawabTidak();
+});
+
+tombolTidak.addEventListener("mouseover", function() {
+    pindahkanTombol();
+});
+</script>
+
+</body>
+</html>
